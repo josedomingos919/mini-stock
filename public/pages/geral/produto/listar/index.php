@@ -63,57 +63,43 @@ require('./../../../../config/util.php');
         </section>
 
         <!--Body-->
-        <form class="mt-4">
+        <form class="mt-4 from-list">
+          <table class="table table-striped table-hover">
+              <thead>
+                <th>ID</th>
+                <th class="not-brack-text">Nome</th>
+                <th>Categoria</th>
+                <th>Quantidade</th>
+                <th>Preço Compra</th>
+                <th>Preço Venda</th>
+                <th>Preço Revendedor</th>
+                <th>Data</th>
+                <th>Editar</th>
+                <th>Eliminar</th>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>lkjhg</td>
+                  <td class="not-brack-text">lkjhg</td>
+                  <td>lkjhg</td>
+                  <td>lkjhg</td>
+                  <td>lkjhg</td>
+                  <td>lkjhg</td>
+                  <td>lkjhg</td>
+                  <td>lkjhg</td>
+                  <td>
+                  <button type="button" class="btn btn-light t"><i class="fas fa-pen-alt"></i></button>  
+             
+                  </td>
+                  <td>
+                    <button type="button" class="btn btn-primary"><i class="fas fa-trash-alt"></i></button>
+                  </td>
+                  
+                </tr>
+                
 
-          <div class="row mb-4">
-
-            <div class="col-7">
-              <label class="form-label">Nome</label>
-              <input placeholder="ex.: Água" required type="text" name="nome" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div class="form-text"></div>
-            </div> 
-
-            <div class="col-5">
-              <label class="form-label">Preço de compra</label>
-              <input placeholder="ex.: 1.000 AOA" required type="number" name="preco_compra" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div class="form-text"></div>
-            </div> 
-
-            <div class="col-7"> 
-                <label for="categoriaId" class="form-label">Categoria</label>
-                <input name="categoriaId" required class="form-control" list="datalistOptions" id="categoriaId" placeholder="ex.: Bebida">
-                <datalist id="datalistOptions">
-                  <option value="San Francisco"></option>
-                  <option value="New York"></option>
-                  <option value="Seattle"></option>
-                  <option value="Los Angeles"></option>
-                  <option value="Chicago"></option>
-                </datalist>
-            </div>
-
-            <div class="col-5">
-              <label class="form-label">Preço de venda</label>
-              <input placeholder="ex.: 7,000 AOA" required type="number" name="preco_venda" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div class="form-text"></div>
-            </div> 
-
-            <div class="col-4">
-              <label class="form-label">Preço para revendedor</label>
-              <input placeholder="ex.: 7,000 AOA" required type="number" name="preco_venda" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div class="form-text"></div>
-            </div> 
-
-            <div class="col-3">
-              <label class="form-label">Quantidade</label>
-              <input placeholder="ex.: 20 Un" required type="number" name="quantidade" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-              <div class="form-text"></div>
-            </div> 
-
-          </div> 
-
-            <button style="margin-right: 7px;" type="submit" class="btn btn-primary mr-2">Salvar</button>
-            <button type="button" class="btn btn-light t">Limpar</button>
-  
+              </tbody>
+          </table>
         </form>
         
       </section>

@@ -12,6 +12,10 @@
   font-family: Arial;
 }
 
+body {
+  overflow: hidden;
+}
+
 .form-label {
   color: #00000063 !important;
 }
@@ -26,4 +30,44 @@
 .btn.btn-light.t:focus {
   outline: 0;
   box-shadow: 0 0 0 0.25rem rgb(255 35 0 / 25%);
+}
+
+.table.table-striped thead th {
+  color: #00000063 !important;
+  border-color: #cecece63 !important;
+  white-space: nowrap !important;
+}
+
+.from-list {
+  overflow-x: scroll !important;
+  width: calc(100vw - 524px);
+  height: 47vh;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  cursor: pointer;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  outline: none;
+  background-color: #5b49a9;
+  width: 7px;
+  height: 5px;
+}
+
+.not-brack-text {
+  white-space: nowrap !important;
+}
+
+.from-list.t {
+  width: calc(100vw - 572px);
 }
