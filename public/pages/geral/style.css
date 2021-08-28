@@ -1,0 +1,186 @@
+@import url(../../assets/css/main.css);
+@import url(../../assets/libs/fontawesome-free-5.15.4-web/css/all.css);
+
+.app-container {
+  padding: 24px;
+  background-color: #503e9d;
+  display: flex;
+  height: 100vh;
+}
+
+.menu {
+  padding: 58px;
+  max-width: 360px;
+  width: 100%;
+  padding-left: 38px;
+  padding-top: 58px;
+}
+
+.app {
+  z-index: 5;
+  padding: 58px;
+  box-shadow: 0px 4px 48px rgba(0, 0, 0, 0.02);
+  border-radius: 48px;
+  background-color: white;
+  flex: 1;
+}
+
+.user-log {
+  margin-right: 26px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 56px;
+  height: 56px;
+  font-weight: bold;
+  left: 62px;
+  top: 84px;
+  font-size: 28px;
+  color: white;
+  background: #6553b3;
+  border-radius: 16px;
+}
+
+.log-text {
+  width: 96px;
+  height: 42px;
+  left: 142px;
+  top: 91px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 42px;
+  display: flex;
+  align-items: center;
+  color: #ffffff;
+}
+
+.container-user {
+  padding-bottom: 74px;
+  display: flex;
+  align-items: center;
+}
+
+.li-container * {
+  cursor: pointer;
+}
+.li-container {
+  height: 27px;
+  display: flex;
+  align-items: center;
+  display: flex;
+  margin-bottom: 33px;
+}
+
+.li-container label:first-child {
+  color: white;
+}
+
+.li-container label:last-child {
+  color: white;
+}
+
+.li-container label {
+  font-size: 18px;
+}
+.li-container i {
+  font-size: 24px;
+  margin-right: 14px;
+}
+
+.container-footer {
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 10px;
+  min-height: 100px;
+  background-color: #5b49a9;
+  max-width: 300px;
+  padding: 25px;
+  color: white;
+  font-size: 17px;
+  font-weight: bold;
+  width: 100%;
+}
+
+.div-text {
+  margin-bottom: 10px;
+}
+
+.div-sub-text {
+  color: #9d92cb;
+  margin-bottom: 16px;
+}
+
+.div-buttom {
+  border-radius: 10px;
+
+  font-size: 16px;
+  cursor: pointer;
+  height: 36px;
+  background-color: #fb6d3a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.activo-list {
+  height: 57px;
+  z-index: 2;
+  position: absolute;
+  background-color: #ff000075;
+  width: 56vw;
+  border-radius: 20px;
+  margin-left: -17px;
+}
+
+.activo-list > div {
+  z-index: 5;
+  background-color: royalblue !important;
+}
+
+.li-container > div:last-child {
+  position: relative;
+  z-index: 5;
+}
+
+.li-container.ativo div * {
+  color: #fb6d3a;
+}
+.li-container.ativo div::after {
+  top: -8px;
+  height: 43px;
+  content: " ";
+  left: -19px;
+  z-index: -1;
+  position: absolute;
+  background-color: white;
+  width: 250px;
+  border-radius: 20px;
+}
+
+.li-container.out:hover {
+  opacity: 0.7;
+  transition: 0.2;
+}
+
+.title-page {
+  font-weight: bold;
+  color: #181b1a;
+}
+
+.container-header-title h4 {
+  margin-right: 20px;
+  display: flex;
+}
+
+.teste-ye {
+  margin-left: 14px;
+}
+
+.product-sec .card {
+  width: 14rem !important;
+}
+
+.product-sec .container.t .row {
+  display: flex;
+  justify-content: space-between;
+}
