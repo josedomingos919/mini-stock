@@ -48,7 +48,7 @@ require('./../../config/util.php');
         <section>
           <div class="container mt-4">
           
-              <div class="form-control">
+              <div class="form-control pb-3">
                 <div class="row"> 
                     <div class="col-4"> 
                         <label for="idCategoria" class="form-label">Categoria</label>
@@ -74,7 +74,7 @@ require('./../../config/util.php');
                     </div>
 
                     <div class="col-3" style=" margin-top: 32px; "> 
-                        <button type="button" class="btn btn-primary position-relative">
+                        <button style="width: 100%;" type="button" class="btn btn-primary position-relative">
                           Carrinho
                           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
                             55+

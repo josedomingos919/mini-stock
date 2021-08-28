@@ -11,3 +11,19 @@
   user-select: none;
   font-family: Arial;
 }
+
+.form-label {
+  color: #00000063 !important;
+}
+
+.btn.btn-light.t {
+  border-color: #fb6d3a;
+  background-color: #fb6d3a;
+  color: white;
+}
+
+.btn.btn-light.t:focus + .btn,
+.btn.btn-light.t:focus {
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgb(255 35 0 / 25%);
+}

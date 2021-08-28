@@ -13,7 +13,7 @@ $_SESSION['routes'] = [
         'id'   => 2,
         'icon' => "fab fa-buffer",
         'text' => 'Geral',
-        'link' => '/pages/geral'
+        'link' => '/pages/geral/produto'
     ],
     3=>[
         'id'   => 3,
