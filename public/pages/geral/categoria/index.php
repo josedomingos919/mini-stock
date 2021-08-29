@@ -15,6 +15,9 @@ require('./../../../config/util.php');
     <title>MiniStock | <?php echo $text ?></title>
     <link href="./style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./../../../assets/img/icon.png" />
+    <script src="../../../config/js/api.js"></script>
+    <script src="../../../config/js/validate.js"></script>
+    <script src="./script.js"></script>
   </head>
   <body>
     <div class="app-container">
@@ -63,26 +66,39 @@ require('./../../../config/util.php');
         </section>
 
         <!--Body-->
-        <form class="mt-4">
+        <form class="mt-4"  id="form"> 
+            
+            <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header"> 
+                <strong class="me-auto">Bootstrap</strong>
+                <small>11 mins ago</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Hello, world! This is a toast message.
+              </div>
+            </div>
+
 
           <div class="row mb-4">
 
             <div class="col-12">
               <label class="form-label">Nome</label>
-              <input placeholder="ex.: Bebida" required type="text" name="nome" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input placeholder="ex.: Bebida"  required type="text" name="nome" minlength="3" class="form-control" id="inputName" aria-describedby="emailHelp">
               <div class="form-text"></div>
             </div>   
 
           </div> 
 
-            <button style="margin-right: 7px;" type="submit" class="btn btn-primary mr-2">Salvar</button>
-            <button type="button" class="btn btn-light t">Limpar</button>
+            <button  id="btnData" style="margin-right: 7px;" type="submit" class="btn btn-primary mr-2">Salvar</button>
+            <button type="button" onclick="inputName.value=''" class="btn btn-light t">Limpar</button>
   
         </form>
         
       </section>
     </div>
 
-    <script src="../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
+    <script src="../../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
+    <script src="../../components/loader/index.js"></script>
   </body>
 </html>
