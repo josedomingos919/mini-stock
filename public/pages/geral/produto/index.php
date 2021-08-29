@@ -15,6 +15,8 @@ require('./../../../config/util.php');
     <title>MiniStock | <?php echo $text ?></title>
     <link href="./style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./../../../assets/img/icon.png" />
+    <script src="../../../config/js/api.js"></script>
+    <script src="../../../config/js/validate.js"></script>
   </head>
   <body>
     <div class="app-container">
