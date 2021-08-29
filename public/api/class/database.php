@@ -5,7 +5,7 @@
         private $localhost     =  "localhost";
         private $user          =  "root";
         private $password      =  "";
-        private $database      =  "food";
+        private $database      =  "miniStock";
         private $tableNow      =  null;
         private $connection    =  null;
         public static $isPage  =  0;

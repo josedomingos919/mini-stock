@@ -4,7 +4,7 @@
     include_once 'auxiliary.php';
     include_once 'generic.php';
     include_once 'file.php';
-    include_once 'batabase.php';
+    include_once 'database.php';
 
 
     class Rest extends Aux {
