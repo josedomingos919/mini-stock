@@ -5,7 +5,12 @@ async function incialize(page = 1, limit = 5) {
   table.innerHTML = "";
 
   _loader.show();
-  const response = await Api.all("produto", { page, limit });
+  const response = await Api.all("produto", {
+    page,
+    limit,
+    moreTable: "categoria.id produto.id_categoria",
+    leftJoin: true,
+  });
   _loader.hide();
 
   if (response.data.length) {

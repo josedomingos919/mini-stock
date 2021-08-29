@@ -50,7 +50,7 @@ require('./../../../config/util.php');
         <section class="mt-4">
           <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a style="color: #fb6d3a;" class="nav-link active"  aria-current="page" href="/pages/geral/produto/"><i class="fas fa-box"></i> Produto</a>
+              <a style="color: #fb6d3a;" class="nav-link active"  aria-current="page" href="/pages/geral/produto/"><i class="fas fa-box"></i> Produto <span id="spn_label"></span></a>
             </li>
             <li class="nav-item">
               <a style="color: #00000063;" class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/produto/listar/"><i class="fas fa-clipboard-list"></i> Listar Produtos</a>

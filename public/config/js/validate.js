@@ -1,3 +1,4 @@
+const FileLink__ = "http://ministock.pt/api/upload/";
 class validarCs {
   constructor() {
     this.limpar();
@@ -217,8 +218,7 @@ class validarCs {
           input.files = new DataTransfer().files;
 
           vet.map((e) => {
-            if (e.trim() !== "")
-              this.setInputFiles(input, getServer().FileLink, e);
+            if (e.trim() !== "") this.setInputFiles(input, FileLink__, e);
           });
         }
     }
