@@ -14,7 +14,7 @@ class minCart {
   remove(id_) {
     localStorage.setItem(
       "cart",
-      JSON.stringify(this.get().filter(({ id }) => id !== id_))
+      JSON.stringify(this.get().filter(({ id }) => +id !== +id_))
     );
   }
 }
