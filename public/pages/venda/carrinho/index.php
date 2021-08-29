@@ -94,9 +94,7 @@ require('./../../../config/util.php');
               class="accordion-collapse collapse"
               aria-labelledby="flush-headingOne"
               data-bs-parent="#accordionFlushExample"
-            >
-              <div class="accordion-body">
-                
+            >  
                 <!--Body-->
                 <form class="mt-2 from-list k">
                   <table class="table table-striped table-hover">
@@ -114,9 +112,8 @@ require('./../../../config/util.php');
                     </thead>
                     <tbody id="table"></tbody>
                   </table>
-                </form>
+                </form> 
 
-              </div>
             </div>
           </div>
  
@@ -141,10 +138,11 @@ require('./../../../config/util.php');
               data-bs-parent="#accordionFlushExample"
             >
               <div class="accordion-body">
-                Placeholder content for this accordion, which is intended to
-                demonstrate the <code>.accordion-flush</code> class. This is the
-                second item's accordion body. Let's imagine this being filled
-                with some actual content.
+                <div class="div-total">
+                  <label>TOTAL</label>
+                  <label>3674885 AOA</label>
+                </div>
+                 
               </div>
             </div>
           </div>

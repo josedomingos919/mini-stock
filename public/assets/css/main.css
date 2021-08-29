@@ -94,3 +94,8 @@ body {
 .from-list.k {
   height: calc(100vh - 416px) !important;
 }
+
+.div-total {
+  padding: 20px;
+  border: 2px dashed rgb(255 35 0 / 25%);
+}
