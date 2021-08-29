@@ -71,3 +71,9 @@ body {
 .from-list.t {
   width: calc(100vw - 572px);
 }
+
+.img-prod {
+  width: 47px;
+  height: 47px;
+  border: 2px solid rgba(100, 100, 100, 0.692);
+}
