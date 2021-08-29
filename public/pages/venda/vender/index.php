@@ -51,10 +51,10 @@ require('./../../../config/util.php');
         <section class="mt-4">
           <ul class="nav nav-tabs"> 
             <li class="nav-item">
-              <a   style="color: #fb6d3a;"   class="nav-link active" style="color: black;" aria-current="page" href="/pages/geral/produto/listar"><i class="fas fa-clipboard-list"></i> Produtos</a>
+              <a   style="color: #fb6d3a;"   class="nav-link active" style="color: black;" aria-current="page" href="/pages/geral/produto/listar"><i class="fas fa-clipboard-list"></i>  Produtos</a>
             </li> 
             <li class="nav-item">
-              <a   style="color: #00000063;" class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/categoria/"><i class="fas fa-filter"></i> Categoria</a>
+              <a   style="color: #00000063;" class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/carrinho/"><i class="fas fa-cart-arrow-down"></i>  Carrinho <span total="spnCarrinho">( 0 )</span></a>
             </li>  
           </ul>
         </section>

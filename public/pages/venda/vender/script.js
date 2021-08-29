@@ -19,14 +19,14 @@ async function incialize(page = 1, limit = 5) {
 
     table.innerHTML = vet
       .map(
-        ({ data_, id, nome, foto, preco_venda }, index) => `
+        ({ id, nome, foto, preco_venda }, index) => `
         <tr>
             <td>${id}</td>
             <td><img class="img-prod" src="${FileLink + foto}" /></td>
             <td class="not-brack-text" >${nome}</td> 
             <td>${formatNumber(preco_venda)} AOA</td> 
             <td><input onchange="calcularTotal(${index},this.value)"  onkeyup="calcularTotal(${index},this.value)"  style="width: 88px;" class="form-control form-control-sm" type="number" min="1" aria-label=".form-control-sm example"> </td>
-            <td id="tdTotal${index}" > - </td>
+            <td style="min-width: 100px;" id="tdTotal${index}" > - </td>
             <td style="text-align: center;">
                 <button onclick="update(${index})" type="button" class="btn btn-light t"><i class="fas fa-plus"></i></button>  
             </td> 
