@@ -25,10 +25,10 @@ async function incialize(page = 1, limit = 5) {
             <td><img class="img-prod" src="${FileLink + foto}" /></td>
             <td class="not-brack-text" >${nome}</td> 
             <td>${formatNumber(preco_venda)} AOA</td> 
-            <td><input onchange="calcularTotal(${index},this.value)"  onkeyup="calcularTotal(${index},this.value)"  style="width: 88px;" class="form-control form-control-sm" type="number" min="1" aria-label=".form-control-sm example"> </td>
+            <td><input id="tdQt${index}" onchange="calcularTotal(${index},this.value)"  onkeyup="calcularTotal(${index},this.value)"  style="width: 88px;" class="form-control form-control-sm" type="number" min="1" aria-label=".form-control-sm example"> </td>
             <td style="min-width: 100px;" id="tdTotal${index}" > - </td>
             <td style="text-align: center;">
-                <button onclick="update(${index})" type="button" class="btn btn-light t"><i class="fas fa-plus"></i></button>  
+                <button onclick="saveInCart(${index})" type="button" class="btn btn-light t"> <i class="fas fa-save"></i> </button>  
             </td> 
         </tr>
       `
@@ -42,6 +42,7 @@ async function incialize(page = 1, limit = 5) {
 }
 
 window.onload = async () => {
+  updateCartTotal();
   const params = getUrlparams();
   incialize(params?.page, params?.limit);
 };
@@ -130,10 +131,37 @@ function MakePagination(response) {
   pageContainer.innerHTML = paginatioRenderHtml;
 }
 
-async function calcularTotal(index, value) {
+async function calcularTotal(index, quantidade) {
   const { preco_venda } = produtoData[index];
   const td = document.getElementById("tdTotal" + index);
 
-  const total = formatNumber(preco_venda * value);
+  const total = formatNumber(preco_venda * quantidade);
+
+  if (total) {
+    produtoData[index].quantidade_ = quantidade;
+    produtoData[index].total_ = total;
+  } else {
+    delete produtoData[index].quantidade_;
+    delete produtoData[index].total_;
+    cart.remove(produtoData[index]?.id);
+  }
+
   td.innerHTML = total ? total + " AOA" : "-";
+}
+
+function saveInCart(index) {
+  if (produtoData[index].total_) {
+    cart.set(produtoData[index]);
+    updateCartTotal(index);
+  }
+}
+
+function updateCartTotal(index) {
+  const span = document.getElementById("spnCarrinho");
+  span.innerHTML = `( ${cart.get().length} )`;
+  console.log("tdQt" + index);
+  if (index !== undefined) {
+    document.getElementById(`tdQt${index}`).value = "";
+    document.getElementById(`tdTotal${index}`).innerHTML = "";
+  }
 }

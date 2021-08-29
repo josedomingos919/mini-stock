@@ -15,6 +15,7 @@ require('./../../../config/util.php');
     <title>MiniStock | <?php echo $text ?></title>
     <link href="./style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./../../../assets/img/icon.png" />
+    <script src="../../../config/js/cart.js"></script>
     <script src="../../../config/js/api.js"></script>
     <script src="../../../config/js/validate.js"></script>
     <script src="./script.js"></script>
@@ -54,7 +55,7 @@ require('./../../../config/util.php');
               <a   style="color: #fb6d3a;"   class="nav-link active" style="color: black;" aria-current="page" href="/pages/geral/produto/listar"><i class="fas fa-clipboard-list"></i>  Produtos</a>
             </li> 
             <li class="nav-item">
-              <a   style="color: #00000063;" class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/carrinho/"><i class="fas fa-cart-arrow-down"></i>  Carrinho <span total="spnCarrinho">( 0 )</span></a>
+              <a   style="color: #00000063;" class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/carrinho/"><i class="fas fa-cart-arrow-down"></i>  Carrinho <span id="spnCarrinho">( 0 )</span></a>
             </li>  
           </ul>
         </section>
