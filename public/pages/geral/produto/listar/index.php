@@ -73,6 +73,11 @@ require('./../../../../config/util.php');
                   <th>ID</th>
                   <th class="not-brack-text">Foto</th>
                   <th class="not-brack-text">Nome</th>
+                  <th>Categoria</th>
+                  <th>Preço Compra</th>
+                  <th>Preço Venda (Un)</th>
+                  <th>Preço Revendedor</th>
+                  <th>Quantidade</th>
                   <th>Data</th>
                   <th>Editar</th>
                   <th>Eliminar</th>

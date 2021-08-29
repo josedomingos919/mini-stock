@@ -19,11 +19,29 @@ async function incialize(page = 1, limit = 5) {
 
     table.innerHTML = vet
       .map(
-        ({ data_, id, nome, foto }, index) => `
+        (
+          {
+            data_,
+            id,
+            nome,
+            foto,
+            quantidade,
+            preco_revendedor,
+            preco_compra,
+            preco_venda,
+            CATEGORIA_nome,
+          },
+          index
+        ) => `
         <tr>
             <td>${id}</td>
             <td><img class="img-prod" src="${FileLink + foto}" /></td>
             <td class="not-brack-text" >${nome}</td>
+            <td>${CATEGORIA_nome}</td>
+            <td>${formatNumber(preco_compra)} AOA</td>
+            <td>${formatNumber(preco_venda)} AOA</td>
+            <td>${formatNumber(preco_revendedor)} AOA</td>
+            <td>${quantidade}</td>
             <td>${data_}</td>
             <td>
                 <button onclick="update(${index})" type="button" class="btn btn-light t"><i class="fas fa-pen-alt"></i></button>  
