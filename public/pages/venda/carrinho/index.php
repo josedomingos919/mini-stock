@@ -4,7 +4,7 @@ session_start();
 $_SESSION['active_routes'] = 1;
 require('./../../../config/util.php');
 
-?> 
+?>
 
 <!DOCTYPE html>
 <html lang="pt-pt">
@@ -30,7 +30,7 @@ require('./../../../config/util.php');
 
         <?php 
             render_routes();
-        ?> 
+        ?>
 
         <div class="container-footer">
           <div class="div-text">Ajuda 24h/24h</div>
@@ -50,44 +50,116 @@ require('./../../../config/util.php');
 
         <!--Header-->
         <section class="mt-4">
-          <ul class="nav nav-tabs"> 
+          <ul class="nav nav-tabs">
             <li class="nav-item">
-              <a style="color: #00000063;" class="nav-link " style="color: black;" aria-current="page" href="/pages/venda/vender/"><i class="fas fa-clipboard-list"></i>  Produtos</a>
-            </li> 
+              <a
+                style="color: #00000063"
+                class="nav-link"
+                style="color: black"
+                aria-current="page"
+                href="/pages/venda/vender/"
+                ><i class="fas fa-clipboard-list"></i> Produtos</a
+              >
+            </li>
             <li class="nav-item">
-              <a   style="color: #fb6d3a;" class="nav-link active" style="color: black;" aria-current="page" href="/pages/venda/carrinho/"><i class="fas fa-cart-arrow-down"></i>  Carrinho <span id="spnCarrinho">( 0 )</span></a>
-            </li>  
+              <a
+                style="color: #fb6d3a"
+                class="nav-link active"
+                style="color: black"
+                aria-current="page"
+                href="/pages/venda/carrinho/"
+                ><i class="fas fa-cart-arrow-down"></i> Carrinho
+                <span id="spnCarrinho">( 0 )</span></a
+              >
+            </li>
           </ul>
         </section>
 
-        <!--Body-->
-        <form class="mt-4 from-list">
-          <table class="table table-striped table-hover">
-              <thead>
-                <tr>
-                  <th>ID</th>
-                  <th class="not-brack-text">Foto</th>
-                  <th class="not-brack-text">Nome</th>
-                  <th>Preço</th> 
-                  <th>Quantidade</th> 
-                  <th>Total</th>  
-                  <th  style="text-align: center;" >Salvar</th>  
-                  <th  style="text-align: center;" >Eliminar</th>  
-                </tr>
-              </thead>
-              <tbody id="table"> 
-              </tbody>
-          </table>
-        </form>
+        <div class="accordion accordion-flush mt-3 menu-cart" id="accordionFlushExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne"> 
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseOne"
+                aria-expanded="false"
+                aria-controls="flush-collapseOne"
+              >
+              <i class="fas fa-clipboard-check" style="margin-right: 10px;"></i>  Produtos selecionado 
+              </button> 
+            </h2>
+            <div
+              id="flush-collapseOne"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingOne"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">
+                
+                <!--Body-->
+                <form class="mt-2 from-list k">
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th>ID</th>
+                        <th class="not-brack-text">Foto</th>
+                        <th class="not-brack-text">Nome</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Total</th>
+                        <th style="text-align: center">Salvar</th>
+                        <th style="text-align: center">Eliminar</th>
+                      </tr>
+                    </thead>
+                    <tbody id="table"></tbody>
+                  </table>
+                </form>
+
+              </div>
+            </div>
+          </div>
+ 
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingTwo">
+              <button
+                id="btnPayOption"
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#flush-collapseTwo"
+                aria-expanded="false"
+                aria-controls="flush-collapseTwo"
+              >
+              <i style="margin-right: 10px;" class="fas fa-money-bill-alt"></i>Pagamento
+              </button>
+            </h2>
+            <div
+              id="flush-collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="flush-headingTwo"
+              data-bs-parent="#accordionFlushExample"
+            >
+              <div class="accordion-body">
+                Placeholder content for this accordion, which is intended to
+                demonstrate the <code>.accordion-flush</code> class. This is the
+                second item's accordion body. Let's imagine this being filled
+                with some actual content.
+              </div>
+            </div>
+          </div>
+ 
+        </div>
+
 
         <div class="mt-4">
-            <nav aria-label="Page navigation example mt-5">
-              <ul id="ulPagination" class="pagination justify-content-center">
-                
-              </ul>
-            </nav>
+          <nav aria-label="Page navigation example mt-5">
+            <ul
+              id="ulPagination"
+              class="pagination justify-content-center"
+            ></ul>
+          </nav>
         </div>
-        
       </section>
     </div>
 

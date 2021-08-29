@@ -103,5 +103,15 @@ function delteInCart(id) {
 
 function updateCartTotal() {
   document.getElementById("spnCarrinho").innerHTML = `( ${cart.get().length} )`;
-  incialize();
+}
+
+let open = false;
+function hidePaySection() {
+  open = !open;
+  alert(3456);
+  if (open) {
+    btnPayOption.style.display = "none";
+  } else {
+    btnPayOption.style.display = "";
+  }
 }

@@ -78,3 +78,19 @@ body {
   height: 47px;
   border: 2px solid rgba(100, 100, 100, 0.692);
 }
+
+.menu-cart .accordion-button {
+  color: rebeccapurple !important;
+}
+
+.menu-cart .accordion-button[aria-expanded="true"] {
+  color: #fb6d3a !important;
+}
+
+.menu-cart .accordion-button[aria-expanded="true"] * #flush-headingTwo {
+  display: none;
+}
+
+.from-list.k {
+  height: calc(100vh - 416px) !important;
+}
