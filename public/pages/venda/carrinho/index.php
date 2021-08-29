@@ -52,10 +52,10 @@ require('./../../../config/util.php');
         <section class="mt-4">
           <ul class="nav nav-tabs"> 
             <li class="nav-item">
-              <a   style="color: #fb6d3a;"   class="nav-link active" style="color: black;" aria-current="page" href="/pages/venda/vender/"><i class="fas fa-clipboard-list"></i>  Produtos</a>
+              <a style="color: #00000063;" class="nav-link " style="color: black;" aria-current="page" href="/pages/venda/vender/"><i class="fas fa-clipboard-list"></i>  Produtos</a>
             </li> 
             <li class="nav-item">
-              <a   style="color: #00000063;" class="nav-link" style="color: black;" aria-current="page" href="/pages/venda/carrinho/"><i class="fas fa-cart-arrow-down"></i>  Carrinho <span id="spnCarrinho">( 0 )</span></a>
+              <a   style="color: #fb6d3a;" class="nav-link active" style="color: black;" aria-current="page" href="/pages/venda/carrinho/"><i class="fas fa-cart-arrow-down"></i>  Carrinho <span id="spnCarrinho">( 0 )</span></a>
             </li>  
           </ul>
         </section>
@@ -71,7 +71,8 @@ require('./../../../config/util.php');
                   <th>Preço</th> 
                   <th>Quantidade</th> 
                   <th>Total</th>  
-                  <th  style="text-align: center;" >Adicionar</th>  
+                  <th  style="text-align: center;" >Salvar</th>  
+                  <th  style="text-align: center;" >Eliminar</th>  
                 </tr>
               </thead>
               <tbody id="table"> 

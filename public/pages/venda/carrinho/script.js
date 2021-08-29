@@ -5,30 +5,30 @@ async function incialize(page = 1, limit = 5) {
   table.innerHTML = "";
 
   _loader.show();
-  const response = await Api.all("produto", {
-    page,
-    limit,
-    moreTable: "categoria.id produto.id_categoria",
-    leftJoin: true,
-  });
+  const response = cart.get();
   _loader.hide();
 
-  if (response.data.length) {
-    const vet = response.data;
+  if (response.length) {
+    const vet = response;
     produtoData = vet;
 
     table.innerHTML = vet
       .map(
-        ({ id, nome, foto, preco_venda }, index) => `
+        ({ id, nome, foto, preco_venda, quantidade_, total_ }, index) => `
         <tr>
             <td>${id}</td>
             <td><img class="img-prod" src="${FileLink + foto}" /></td>
             <td class="not-brack-text" >${nome}</td> 
             <td>${formatNumber(preco_venda)} AOA</td> 
-            <td><input id="tdQt${index}" onchange="calcularTotal(${index},this.value)"  onkeyup="calcularTotal(${index},this.value)"  style="width: 88px;" class="form-control form-control-sm" type="number" min="1" aria-label=".form-control-sm example"> </td>
-            <td style="min-width: 100px;" id="tdTotal${index}" > - </td>
+            <td><input value="${quantidade_}" id="tdQt${index}" onchange="calcularTotal(${index},this.value)"  onkeyup="calcularTotal(${index},this.value)"  style="width: 88px;" class="form-control form-control-sm" type="number" min="1" aria-label=".form-control-sm example"> </td>
+            <td style="min-width: 100px;" id="tdTotal${index}" >${
+          total_ + " AOA"
+        }</td>
             <td style="text-align: center;">
                 <button onclick="saveInCart(${index})" type="button" class="btn btn-light t"> <i class="fas fa-save"></i> </button>  
+            </td> 
+            <td style="text-align: center;">
+                <button onclick="saveInCart(${index})" type="button" class="btn btn-danger t"> <i class="fas fa-trash"></i> </button>  
             </td> 
         </tr>
       `
@@ -83,7 +83,7 @@ function MakePagination(response) {
             <li class="page-item">
                 <a ${
                   i == page_now ? ` style="color: #fb6d3a;"` : ``
-                } class="page-link" href="/pages/venda/vender/?page=${i}">${i}</a>
+                } class="page-link" href="/pages/geral/produto/listar/?page=${i}">${i}</a>
             </li> 
         `;
     }
@@ -95,7 +95,7 @@ function MakePagination(response) {
   if (+page_now !== 1) {
     paginatioRenderHtml = `
     <li class="page-item ">
-        <a class="page-link" href="/pages/venda/vender/?page=${
+        <a class="page-link" href="/pages/geral/produto/listar/?page=${
           +page_now - 1
         }" tabindex="-1" aria-disabled="true"> « </a>
     </li>
@@ -114,7 +114,7 @@ function MakePagination(response) {
   if (+page_now !== page_all) {
     paginatioRenderHtml += `  
         <li class="page-item">
-            <a class="page-link" href="/pages/venda/vender/?page=${
+            <a class="page-link" href="/pages/geral/produto/listar/?page=${
               +page_now + 1
             }"> » </a>
         </li>
@@ -152,18 +152,13 @@ async function calcularTotal(index, quantidade) {
 function saveInCart(index) {
   if (produtoData[index].total_) {
     cart.set(produtoData[index]);
-    updateCartTotal(index);
+    updateCartTotal();
   } else {
     alert("Esperava receber á quantidade!");
   }
 }
 
-function updateCartTotal(index) {
-  const span = document.getElementById("spnCarrinho");
-  span.innerHTML = `( ${cart.get().length} )`;
-  console.log("tdQt" + index);
-  if (index !== undefined) {
-    document.getElementById(`tdQt${index}`).value = "";
-    document.getElementById(`tdTotal${index}`).innerHTML = "-";
-  }
+function updateCartTotal() {
+  document.getElementById("spnCarrinho").innerHTML = `( ${cart.get().length} )`;
+  incialize();
 }
