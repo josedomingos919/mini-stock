@@ -535,3 +535,4 @@ class validarCs {
 }
 
 const Validar = new validarCs();
+window.Validar = Validar;
