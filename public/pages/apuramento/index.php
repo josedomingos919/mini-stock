@@ -45,7 +45,7 @@ require('./../../config/util.php');
         </div>
 
         <section>
-          <div class="container mt-4">
+          <div class="mt-4">
           
          <div class="accordion accordion-flush" id="accordionFlushExample">
           <div class="accordion-item">
@@ -142,10 +142,10 @@ require('./../../config/util.php');
 
 
               <section  class="product-sec" >
-                <div class="container t">
+                <div class="t">
 
                 
-                <form class="mt-4 from-list t" >
+                <form class="mt-4 from-list" >
                   <table class="table table-striped table-hover">
                       <thead>
                         <tr><th>ID</th>

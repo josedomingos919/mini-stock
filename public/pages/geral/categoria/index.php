@@ -57,7 +57,7 @@ require('./../../../config/util.php');
               <a style="color: #00000063;" class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/produto/listar/"><i class="fas fa-clipboard-list"></i> Listar Produtos</a>
             </li> 
             <li class="nav-item">
-              <a    style="color: #fb6d3a;"  class="nav-link active" style="color: black;" aria-current="page" href="/pages/geral/categoria/"><i class="fas fa-filter"></i> Categoria</a>
+              <a    style="color: #fb6d3a;"  class="nav-link active" style="color: black;" aria-current="page" href="/pages/geral/categoria/"><i class="fas fa-filter"></i> Categoria <span id="spn_label"></span></a>
             </li> 
             <li class="nav-item">
               <a  style="color: #00000063;"  class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/categoria/listar/"><i class="fas fa-clipboard-list"></i> Listar Categoria</a>

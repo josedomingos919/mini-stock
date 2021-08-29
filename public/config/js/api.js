@@ -42,6 +42,9 @@ const Api = {
   all(class_, data = {}) {
     return Api.Send(data, class_, "all");
   },
+  delete(class_, data = {}) {
+    return Api.Send(data, class_, "remove");
+  },
 };
 
 const Config = {

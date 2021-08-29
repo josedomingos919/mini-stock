@@ -15,6 +15,9 @@ require('./../../../../config/util.php');
     <title>MiniStock | <?php echo $text ?></title>
     <link href="./style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./../../../../assets/img/icon.png" />
+    <script src="../../../../config/js/api.js"></script>
+    <script src="../../../../config/js/validate.js"></script>
+    <script src="./script.js"></script>
   </head>
   <body>
     <div class="app-container">
@@ -57,7 +60,7 @@ require('./../../../../config/util.php');
               <a  style="color: #00000063;"  class="nav-link" style="color: black;" aria-current="page" href="/pages/geral/categoria/"><i class="fas fa-filter"></i> Categoria</a>
             </li> 
             <li class="nav-item">
-              <a    style="color: #fb6d3a;" class="nav-link active" style="color: black;" aria-current="page" href="/pages/geral/categoria/listar/"><i class="fas fa-clipboard-list "></i> Listar Categoria</a>
+              <a    style="color: #fb6d3a;" class="nav-link active" style="color: black;" aria-current="page" href="/pages/geral/categoria/listar/"><i class="fas fa-clipboard-list "></i> Listar Categoria <span id="totalData" ></span></a>
             </li> 
           </ul>
         </section>
@@ -74,29 +77,24 @@ require('./../../../../config/util.php');
                   <th>Eliminar</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>lkjhg</td>
-                  <td class="not-brack-text" style="flex: 1; width: 100%; " >lkjhg</td>
-                  <td>lkjhg</td>
-                  <td>
-                  <button type="button" class="btn btn-light t"><i class="fas fa-pen-alt"></i></button>  
-             
-                  </td>
-                  <td>
-                    <button type="button" class="btn btn-primary"><i class="fas fa-trash-alt"></i></button>
-                  </td>
-                  
-                </tr>
-                
-
+              <tbody id="table">
+                 
               </tbody>
           </table>
         </form>
+
+        <div class="mt-4">
+            <nav aria-label="Page navigation example mt-5">
+              <ul id="ulPagination" class="pagination justify-content-center">
+                
+              </ul>
+            </nav>
+        </div>
         
       </section>
     </div>
 
-    <script src="../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
+    <script src="../../../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
+    <script src="../../../components/loader/index.js"></script>
   </body>
 </html>
