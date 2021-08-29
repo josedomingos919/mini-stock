@@ -65,7 +65,7 @@ require('./../../../config/util.php');
         </section>
 
         <!--Body-->
-        <form class="mt-4">
+        <form id="form" class="mt-4">
 
           <div class="row mb-4">
 
@@ -121,6 +121,6 @@ require('./../../../config/util.php');
       </section>
     </div>
 
-    <script src="../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
+    <script src="../../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
   </body>
 </html>
