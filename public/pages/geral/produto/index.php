@@ -82,15 +82,9 @@ require('./../../../config/util.php');
             </div> 
 
             <div class="col-7"> 
-                <label for="categoriaId" class="form-label">Categoria</label>
-                <input name="categoriaId" required class="form-control" list="datalistOptions" id="categoriaId" placeholder="ex.: Bebida">
-                <datalist id="datalistOptions">
-                  <option value="San Francisco"></option>
-                  <option value="New York"></option>
-                  <option value="Seattle"></option>
-                  <option value="Los Angeles"></option>
-                  <option value="Chicago"></option>
-                </datalist>
+                <label for="id_categoria" class="form-label">Categoria</label>
+                <input name="id_categoria" required class="form-control" list="datalistOptionsCategoria" id="categoriaId" placeholder="ex.: Bebida">
+                <datalist id="datalistOptionsCategoria"></datalist>
             </div>
 
             <div class="col-5">
@@ -101,7 +95,7 @@ require('./../../../config/util.php');
 
             <div class="col-4">
               <label class="form-label">Preço para revendedor</label>
-              <input placeholder="ex.: 7,000 AOA" required type="number" name="preco_venda" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <input placeholder="ex.: 7,000 AOA" required type="number" name="preco_revendedor" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               <div class="form-text"></div>
             </div> 
 
@@ -110,6 +104,11 @@ require('./../../../config/util.php');
               <input placeholder="ex.: 20 Un" required type="number" name="quantidade" minlength="3" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
               <div class="form-text"></div>
             </div> 
+
+            <div class="col-5">
+              <label for="formFile" class="form-label">Foto</label>
+              <input title="Selecione a foto do produto" required class="form-control" type="file" name="foto" id="formFile">
+            </div>
 
           </div> 
 
@@ -121,6 +120,8 @@ require('./../../../config/util.php');
       </section>
     </div>
 
+    <script src="./../../components/loader/index.js"></script>
     <script src="../../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
