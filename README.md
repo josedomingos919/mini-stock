@@ -8,7 +8,7 @@ O MiniStock é um sitema de gestão comercial, desenvolvido com foco em pequenas
 	🚧 MiniStock...  🚧
 </h4>
 
-## :construction_worker: Istalação
+## :construction_worker: Instalação
 
 Você vai precisar instalar um servidor Php na sua maquina e um banco de dados mysql, para lhe ajudar temos o WAMP ou XAMP
 
