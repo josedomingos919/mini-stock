@@ -42,6 +42,7 @@ window.onload = async () => {
   updateCartTotal();
   const params = getUrlparams();
   incialize(params?.page, params?.limit);
+  lbl_total.innerHTML = formatNumber(cart.getTotal()) + " AOA";
 };
 
 function getUrlparams() {
@@ -102,16 +103,24 @@ function delteInCart(id) {
 }
 
 function updateCartTotal() {
-  document.getElementById("spnCarrinho").innerHTML = `( ${cart.get().length} )`;
+  const quantidade = cart.get().length;
+  lbl_prod.innerHTML = "( " + quantidade + " )";
+  document.getElementById("spnCarrinho").innerHTML = `( ${quantidade} )`;
 }
 
 let open = false;
 function hidePaySection() {
   open = !open;
-  alert(3456);
   if (open) {
     btnPayOption.style.display = "none";
   } else {
     btnPayOption.style.display = "";
   }
+}
+
+function onchangeValor(valor) {
+  lbl_pagar.innerHTML = (formatNumber(valor) || 0) + ",00 AOA";
+  lbl_troco.innerHTML = valor
+    ? formatNumber(Math.abs(cart.getTotal() - valor)) + " ,00 AOA"
+    : "0,00 AOA";
 }

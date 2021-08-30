@@ -99,3 +99,18 @@ body {
   padding: 20px;
   border: 2px dashed rgb(255 35 0 / 25%);
 }
+
+.div-total > .rows {
+  display: flex;
+  justify-content: space-between;
+}
+
+.div-total > .rows.t {
+  margin-bottom: 7px;
+  padding-bottom: 5px;
+  border-bottom: 2px dashed rgba(0, 0, 0, 0.541);
+}
+
+.div-total > .rows.a {
+  font-size: 12px;
+}

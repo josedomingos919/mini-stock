@@ -75,9 +75,12 @@ require('./../../../config/util.php');
           </ul>
         </section>
 
-        <div class="accordion accordion-flush mt-3 menu-cart" id="accordionFlushExample">
+        <div
+          class="accordion accordion-flush mt-3 menu-cart"
+          id="accordionFlushExample"
+        >
           <div class="accordion-item">
-            <h2 class="accordion-header" id="flush-headingOne"> 
+            <h2 class="accordion-header" id="flush-headingOne">
               <button
                 class="accordion-button collapsed"
                 type="button"
@@ -86,37 +89,40 @@ require('./../../../config/util.php');
                 aria-expanded="false"
                 aria-controls="flush-collapseOne"
               >
-              <i class="fas fa-clipboard-check" style="margin-right: 10px;"></i>  Produtos selecionado 
-              </button> 
+                <i
+                  class="fas fa-clipboard-check"
+                  style="margin-right: 10px"
+                ></i>
+                Produtos selecionado
+              </button>
             </h2>
             <div
               id="flush-collapseOne"
               class="accordion-collapse collapse"
               aria-labelledby="flush-headingOne"
               data-bs-parent="#accordionFlushExample"
-            >  
-                <!--Body-->
-                <form class="mt-2 from-list k">
-                  <table class="table table-striped table-hover">
-                    <thead>
-                      <tr>
-                        <th>ID</th>
-                        <th class="not-brack-text">Foto</th>
-                        <th class="not-brack-text">Nome</th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                        <th>Total</th>
-                        <th style="text-align: center">Salvar</th>
-                        <th style="text-align: center">Eliminar</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table"></tbody>
-                  </table>
-                </form> 
-
+            >
+              <!--Body-->
+              <form class="mt-2 from-list k">
+                <table class="table table-striped table-hover">
+                  <thead>
+                    <tr>
+                      <th>ID</th>
+                      <th class="not-brack-text">Foto</th>
+                      <th class="not-brack-text">Nome</th>
+                      <th>Preço</th>
+                      <th>Quantidade</th>
+                      <th>Total</th>
+                      <th style="text-align: center">Salvar</th>
+                      <th style="text-align: center">Eliminar</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table"></tbody>
+                </table>
+              </form>
             </div>
           </div>
- 
+
           <div class="accordion-item">
             <h2 class="accordion-header" id="flush-headingTwo">
               <button
@@ -128,7 +134,8 @@ require('./../../../config/util.php');
                 aria-expanded="false"
                 aria-controls="flush-collapseTwo"
               >
-              <i style="margin-right: 10px;" class="fas fa-money-bill-alt"></i>Pagamento
+                <i style="margin-right: 10px" class="fas fa-money-bill-alt"></i
+                >Pagamento
               </button>
             </h2>
             <div
@@ -139,24 +146,87 @@ require('./../../../config/util.php');
             >
               <div class="accordion-body">
                 <div class="div-total">
-                  <label>TOTAL</label>
-                  <label>3674885 AOA</label>
+                  <div class="rows t">
+                    <label>TOTAL</label>
+                    <label id="lbl_total">0,00 AOA</label>
+                  </div>
+                  <div class="rows a">
+                    <label>Valor Pago</label>
+                    <label id="lbl_pagar">0,00 AOA</label>
+                  </div>
+                  <div class="rows a">
+                    <label>Diferença ( Troco )</label>
+                    <label id="lbl_troco">0,00 AOA</label>
+                  </div>
+                  <div class="rows a">
+                    <label>Qt. Produto</label>
+                    <label id="lbl_prod">( 0,00 )</label>
+                  </div>
                 </div>
-                 
+
+                <div class="row mt-3">
+                  <div class="col-3">
+                    <label>Valor dado:</label>
+                    <input
+                      id="tdQt0"
+                      class="form-control"
+                      type="number"
+                      min="1"
+                      aria-label=".form-control-sm example"
+                      onchange="onchangeValor(this.value)"
+                      onkeyup="onchangeValor(this.value)"
+                    />
+                  </div>
+                  <div class="col-3">
+                    <label>Metódo de Pagamento:</label>
+                    <select class="form-control">
+                      <option value=""></option>
+                      <option value="money">DINHEIRO</option>
+                      <option value="tpa">POS/TPA</option>
+                    </select>
+                  </div>
+                  
+                </div>
+
+                <div class="row">
+                  <div class="col-12 pt-4" >
+                    <button
+                      id="btnSalvar"
+                      type="button"
+                      class="btn btn-light t"
+                    >
+                      <i
+                        style="margin-right: 8px"
+                        class="fas fa-check-square"
+                      ></i>
+                      Finalizar Compra
+                    </button>
+                    <label>
+                      <button
+                        id="btnSalvarEnter"
+                        type="button"
+                        class="btn btn-danger t"
+                      >
+                        <i
+                          style="margin-right: 8px"
+                          class="fas fa-backspace"
+                        ></i>
+                        Cancelar
+                      </button>
+                    </label>
+                    <button
+                      id="btnSalvarCancelar"
+                      type="button"
+                      class="btn btn-success t"
+                    >
+                      <i class="fas fa-print" style="margin-right: 8px"></i>
+                      Imprimir
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
- 
-        </div>
-
-
-        <div class="mt-4">
-          <nav aria-label="Page navigation example mt-5">
-            <ul
-              id="ulPagination"
-              class="pagination justify-content-center"
-            ></ul>
-          </nav>
         </div>
       </section>
     </div>
