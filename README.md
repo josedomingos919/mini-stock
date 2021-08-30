@@ -15,11 +15,13 @@ Você vai precisar instalar um servidor Php na sua maquina e um banco de dados m
 - [Wamp Server](https://www.wampserver.com/en/)
 - [Xamp](https://www.apachefriends.org/download.html)
 
-## :sparkles: Rodando o Projecto
+## :sparkles: Instruções para rodar o projecto
 
 ```bash
 1) git clone https://github.com/josedomingos919/miniStock.git # Clona o repositório na pasta do seu servidor WAMP OU XAMP
+
 2) Executar o script do banco de dados localizado na pasta database no diretório raiz
+
 3) Criar o seu virtual host no caso do windows vai até a pasta [ C:\Windows\System32\drivers\etc ] edita o ficheiro hosts e coloca:
 
 127.0.0.2 ministock.pt
