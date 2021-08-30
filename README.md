@@ -18,29 +18,18 @@ Você vai precisar instalar um servidor Php na sua maquina e um banco de dados m
 ## :sparkles: Rodando o Projecto
 
 ```bash
-$ git clone https://github.com/jmamadeu/andromeda.git # Clone this repository to your machine
-$ cd andromeda # Enter in the project folder
-$ yarn # Install all dependencies
+1) git clone https://github.com/josedomingos919/miniStock.git # Clona o repositório na pasta do seu servidor WAMP OU XAMP
+2) Executar o script do banco de dados localizado na pasta database no diretório raiz
+3) Criar o seu virtual host no caso do windows vai até a pasta [ C:\Windows\System32\drivers\etc ] edita o ficheiro hosts e coloca:
 
-$ yarn dev # Running the project
-$ yarn test # Running the tests
+127.0.0.2 ministock.pt
+::3	ministock.pt
+
+4) Por final abra o seu navegador e comece a apreciar o projecto! digitando => ministock.pt
 ```
 
-<p>
-Att: To load companies members you need to have a github token. Go to [Creating_a_personal_access_token](https://docs.github.com/en/github/authenticating-to-github/creating-a-personal-access-token).
-<br />
-So, now go to the `src/services/api.ts` and add your token  `TOKEN_GITHUB_API`;
+:tada: Obrigado, a prática leva a perfeição!
 
-</p>
+## :bulb: Tecnologias Utilizadas
 
-:tada: Congratulations, the project is running
-
-## :bulb: Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## :bookmark: License
-
-[MIT](https://choosealicense.com/licenses/mit/)
+ 
