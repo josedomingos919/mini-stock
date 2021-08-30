@@ -2,22 +2,20 @@
   MiniStock
 </h1>
 
-O MiniStock é um sitema de gestão comercial, desenvolvido com foco em pequenas cantinas e estabelecimentos mercantis!...
-
-Com o MiniStock poderam efectuar a sua faturação em tempo record.
+O MiniStock é um sitema de gestão comercial, desenvolvido com foco em pequenas cantinas e estabelecimentos mercantis, com o MiniStock poderam efectuar a sua faturação em tempo record...
 
 <h4 align="center"> 
 	🚧 MiniStock...  🚧
 </h4>
 
-## :construction_worker: Installation
+## :construction_worker: Istalação
 
-You will need to install
+Você vai precisar instalar um servidor Php na sua maquina e um banco de dados mysql, para lhe ajudar temos o WAMP ou XAMP
 
-- [Node.js](https://nodejs.org)
-- [Yarn](https://yarnpkg.com/)
+- [Wamp Server](https://www.wampserver.com/en/)
+- [Xamp](https://www.apachefriends.org/download.html)
 
-## :sparkles: Running the Project
+## :sparkles: Rodando o Projecto
 
 ```bash
 $ git clone https://github.com/jmamadeu/andromeda.git # Clone this repository to your machine
