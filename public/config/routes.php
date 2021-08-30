@@ -7,7 +7,7 @@ $_SESSION['routes'] = [
         'id'   => 1,
         'icon' => "fas fa-shopping-basket",
         'text' => 'Venda',
-        'link' => '/pages/venda'
+        'link' => '/pages/venda/vender'
     ],
     2=>[
         'id'   => 2,

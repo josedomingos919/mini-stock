@@ -33,9 +33,7 @@ async function incialize() {
       `
       )
       .join(" ");
-  } else {
-    alert("Nenhum dado foi encontrado!");
-  }
+  }  
 }
 
 window.onload = async () => {

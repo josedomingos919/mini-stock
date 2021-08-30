@@ -163,16 +163,16 @@ require('./../../config/util.php');
                       </tr></thead>
                       <tbody>
                         <tr>
-                          <td>lkjhg</td>
-                          <td class="not-brack-text">lkjhg</td>
-                          <td>lkjhg</td>
-                          <td>lkjhg</td>
-                          <td>lkjhg</td>
-                          <td>lkjhg</td>
-                          <td>lkjhg</td>
-                          <td>lkjhg</td>
-                          <td>lkjhg</td>
-                          <td>lkjhg</td>
+                          <td></td>
+                          <td class="not-brack-text"></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
+                          <td></td>
                           <td>
                           <button type="button" class="btn btn-light t"><i class="fas fa-pen-alt"></i></button>  
                     

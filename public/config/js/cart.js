@@ -3,9 +3,13 @@ class minCart {
     return JSON.parse(localStorage.cart || "[]");
   }
   getTotal() {
-    return this.get()
+    try{ 
+      return this.get()
       .map(({ quantidade_, preco_venda }) => +quantidade_ * +preco_venda)
       .reduce((a = 0, b = 0) => a + b);
+    }catch {
+      return 0
+    }
   }
   set(item) {
     localStorage.setItem(

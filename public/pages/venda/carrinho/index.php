@@ -144,7 +144,7 @@ require('./../../../config/util.php');
               aria-labelledby="flush-headingTwo"
               data-bs-parent="#accordionFlushExample"
             >
-              <div class="accordion-body">
+              <div class="accordion-body" style="height: calc(100vh - 378px);overflow-y: auto;">
                 <div class="div-total">
                   <div class="rows t">
                     <label>TOTAL</label>
