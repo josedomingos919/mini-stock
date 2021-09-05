@@ -1,7 +1,6 @@
 <?php
 
-    class reserva  extends Generic{
-
-
-    }
+class reserva extends Generic
+{
+}
 ?>

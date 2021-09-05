@@ -1,9 +1,8 @@
-<?php 
+<?php
 
-session_start(); 
+session_start();
 $_SESSION['active_routes'] = 1;
-require('./../../../config/util.php');
-
+require './../../../config/util.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,7 +11,7 @@ require('./../../../config/util.php');
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MiniStock | <?php echo $text ?></title>
+    <title>MiniStock | <?php echo $text; ?></title>
     <link href="./style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./../../../assets/img/icon.png" />
     <script src="../../../config/js/cart.js"></script>
@@ -28,9 +27,7 @@ require('./../../../config/util.php');
           <div class="log-text">iniStock</div>
         </div>
 
-        <?php 
-            render_routes();
-        ?>
+        <?php render_routes(); ?>
 
         <div class="container-footer">
           <div class="div-text">Ajuda 24h/24h</div>
@@ -43,7 +40,7 @@ require('./../../../config/util.php');
         <div class="container-header-title">
           <h4 class="title-page mr-3">
             <i class="fab fa-buffer"></i>
-            <label class="teste-ye"><?php echo $text ?></label>
+            <label class="teste-ye"><?php echo $text; ?></label>
           </h4>
           <hr />
         </div>
@@ -138,94 +135,99 @@ require('./../../../config/util.php');
                 >Pagamento
               </button>
             </h2>
-            <div
-              id="flush-collapseTwo"
-              class="accordion-collapse collapse"
-              aria-labelledby="flush-headingTwo"
-              data-bs-parent="#accordionFlushExample"
-            >
-              <div class="accordion-body" style="height: calc(100vh - 378px);overflow-y: auto;">
-                <div class="div-total">
-                  <div class="rows t">
-                    <label>TOTAL</label>
-                    <label id="lbl_total">0,00 AOA</label>
-                  </div>
-                  <div class="rows a">
-                    <label>Valor Pago</label>
-                    <label id="lbl_pagar">0,00 AOA</label>
-                  </div>
-                  <div class="rows a">
-                    <label>Diferença ( Troco )</label>
-                    <label id="lbl_troco">0,00 AOA</label>
-                  </div>
-                  <div class="rows a">
-                    <label>Qt. Produto</label>
-                    <label id="lbl_prod">( 0,00 )</label>
-                  </div>
-                </div>
 
-                <div class="row mt-3">
-                  <div class="col-3">
-                    <label>Valor dado:</label>
-                    <input
-                      id="tdQt0"
-                      class="form-control"
-                      type="number"
-                      min="1"
-                      aria-label=".form-control-sm example"
-                      onchange="onchangeValor(this.value)"
-                      onkeyup="onchangeValor(this.value)"
-                    />
+            <form id="formDev" >
+              <div
+                id="flush-collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample"
+              >
+                <div class="accordion-body" style="height: calc(100vh - 378px);overflow-y: auto;">
+                  <div class="div-total">
+                    <div class="rows t">
+                      <label>TOTAL</label>
+                      <label id="lbl_total">0,00 AOA</label>
+                    </div>
+                    <div class="rows a">
+                      <label>Valor Pago</label>
+                      <label id="lbl_pagar">0,00 AOA</label>
+                    </div>
+                    <div class="rows a">
+                      <label>Diferença ( Troco )</label>
+                      <label id="lbl_troco">0,00 AOA</label>
+                    </div>
+                    <div class="rows a">
+                      <label>Qt. Produto</label>
+                      <label id="lbl_prod">( 0,00 )</label>
+                    </div>
                   </div>
-                  <div class="col-3">
-                    <label>Metódo de Pagamento:</label>
-                    <select class="form-control">
-                      <option value=""></option>
-                      <option value="money">DINHEIRO</option>
-                      <option value="tpa">POS/TPA</option>
-                    </select>
-                  </div>
-                  
-                </div>
 
-                <div class="row">
-                  <div class="col-12 pt-4" >
-                    <button
-                      id="btnSalvar"
-                      type="button"
-                      class="btn btn-light t"
-                    >
-                      <i
-                        style="margin-right: 8px"
-                        class="fas fa-check-square"
-                      ></i>
-                      Finalizar Compra
-                    </button>
-                    <label>
+                  <div class="row mt-3">
+                    <div class="col-3">
+                      <label>Valor dado:</label>
+                      <input
+                        required
+                        id="inputPreco"
+                        class="form-control"
+                        type="number"
+                        min="1"
+                        aria-label=".form-control-sm example"
+                        onchange="onchangeValor(this.value)"
+                        onkeyup="onchangeValor(this.value)"
+                      />
+                    </div>
+                    <div class="col-3">
+                      <label>Metódo de Pagamento:</label>
+                      <select id="selectInput" required class="form-control">
+                        <option value=""></option>
+                        <option value="DINHEIRO">DINHEIRO</option>
+                        <option value="TPA">POS/TPA</option>
+                      </select>
+                    </div>
+                    
+                  </div>
+
+                  <div class="row">
+                    <div class="col-12 pt-4" >
                       <button
-                        id="btnSalvarEnter"
-                        type="button"
-                        class="btn btn-danger t"
+                        id="btnSalvar"
+                        type="submit"
+                        class="btn btn-light t"
                       >
                         <i
                           style="margin-right: 8px"
-                          class="fas fa-backspace"
+                          class="fas fa-check-square"
                         ></i>
-                        Cancelar
+                        Finalizar Compra
                       </button>
-                    </label>
-                    <button
-                      id="btnSalvarCancelar"
-                      type="button"
-                      class="btn btn-success t"
-                    >
-                      <i class="fas fa-print" style="margin-right: 8px"></i>
-                      Imprimir
-                    </button>
+                      <label>
+                        <button
+                          id="btnSalvarEnter"
+                          type="button"
+                          class="btn btn-danger t"
+                        >
+                          <i
+                            style="margin-right: 8px"
+                            class="fas fa-backspace"
+                          ></i>
+                          Cancelar
+                        </button>
+                      </label>
+                      <button
+                        id="btnSalvarCancelar"
+                        type="button"
+                        class="btn btn-success t"
+                      >
+                        <i class="fas fa-print" style="margin-right: 8px"></i>
+                        Imprimir
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </form>
+
           </div>
         </div>
       </section>

@@ -1,15 +1,16 @@
-var produtoData = [];
+var produtoData = []
+var valorDado = 0
 
 async function incialize() {
-  updateCartTotal();
-  const table = document.getElementById("table");
-  table.innerHTML = "";
+  updateCartTotal()
+  const table = document.getElementById('table')
+  table.innerHTML = ''
 
-  const response = cart.get();
+  const response = cart.get()
 
   if (response.length) {
-    const vet = response;
-    produtoData = vet;
+    const vet = response
+    produtoData = vet
 
     table.innerHTML = vet
       .map(
@@ -21,7 +22,7 @@ async function incialize() {
             <td>${formatNumber(preco_venda)} AOA</td> 
             <td><input value="${quantidade_}" id="tdQt${index}" onchange="calcularTotal(${index},this.value)"  onkeyup="calcularTotal(${index},this.value)"  style="width: 88px;" class="form-control form-control-sm" type="number" min="1" aria-label=".form-control-sm example"> </td>
             <td style="min-width: 100px;" id="tdTotal${index}" >${
-          total_ + " AOA"
+          total_ + ' AOA'
         }</td>
             <td style="text-align: center;">
                 <button onclick="saveInCart(${index})" type="button" class="btn btn-light t"> <i class="fas fa-save"></i> </button>  
@@ -30,95 +31,148 @@ async function incialize() {
                 <button onclick="delteInCart(${id})" type="button" class="btn btn-danger t"> <i class="fas fa-trash"></i> </button>  
             </td> 
         </tr>
-      `
+      `,
       )
-      .join(" ");
-  }  
+      .join(' ')
+  }
 }
 
 window.onload = async () => {
-  updateCartTotal();
-  const params = getUrlparams();
-  incialize(params?.page, params?.limit);
-  lbl_total.innerHTML = formatNumber(cart.getTotal()) + " AOA";
-};
+  updateCartTotal()
+  const params = getUrlparams()
+  incialize()
+  lbl_total.innerHTML = formatNumber(cart.getTotal()) + ' AOA'
+
+  const form = document.getElementById('formDev')
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+
+    const valorDado = document.getElementById('inputPreco').value
+    const valorPagar = cart.getTotal()
+    const method = document.getElementById('selectInput').value
+
+    if (valorDado < valorPagar) {
+      alert('Valor insuficiente!')
+    } else {
+      _loader.show()
+      const responseVendaAdd = await Api.add('venda', {
+        valor_pago: valorDado,
+        troco: getDiferenca(),
+        total: cart.getTotal(),
+        estado: 'vendido',
+        tipo: method,
+      })
+
+      const { status, inserted_id } = responseVendaAdd || {}
+
+      if (status) {
+        for (e of cart.get()) {
+          const item = Api.add('produtovenda', {
+            produto_id: e?.id,
+            venda_id: inserted_id,
+            quantidade: e?.quantidade,
+            preco: e?.preco_venda,
+            total: +e?.preco_venda * +e?.quantidade,
+          })
+
+          console.log(item)
+        }
+        _loader.hide()
+        alert('Venda feita com sucesso!')
+        cart.clear()
+        window.location.replace('/pages/venda/vender/')
+      } else {
+        alert('Falha ao vender!')
+      }
+
+      console.log('responseVendaAdd', responseVendaAdd)
+    }
+
+    console.log('teste', cart.get())
+  })
+}
 
 function getUrlparams() {
   try {
-    const result = {};
+    const result = {}
 
     location.search
       .substring(1)
-      .split("&")
+      .split('&')
       .map((e) => ({
-        [e.split("=")?.[0]]: e.split("=")?.[1],
+        [e.split('=')?.[0]]: e.split('=')?.[1],
       }))
       .forEach((e) => {
         if (Object.keys(e)?.[0])
-          result[Object.keys(e)?.[0]] = Object.values(e)?.[0];
-      });
+          result[Object.keys(e)?.[0]] = Object.values(e)?.[0]
+      })
 
-    return result;
+    return result
   } catch {
-    return {};
+    return {}
   }
 }
 
 async function calcularTotal(index, quantidade) {
-  const { preco_venda } = produtoData[index];
-  const td = document.getElementById("tdTotal" + index);
+  const { preco_venda } = produtoData[index]
+  const td = document.getElementById('tdTotal' + index)
 
-  const total = formatNumber(preco_venda * quantidade);
+  const total = formatNumber(preco_venda * quantidade)
 
   if (total) {
-    produtoData[index].quantidade_ = quantidade;
-    produtoData[index].total_ = total;
+    produtoData[index].quantidade_ = quantidade
+    produtoData[index].total_ = total
   } else {
-    delete produtoData[index].quantidade_;
-    delete produtoData[index].total_;
-    cart.remove(produtoData[index]?.id);
+    delete produtoData[index].quantidade_
+    delete produtoData[index].total_
+    cart.remove(produtoData[index]?.id)
   }
 
-  td.innerHTML = total ? total + " AOA" : "-";
+  td.innerHTML = total ? total + ' AOA' : '-'
 }
 
 function saveInCart(index) {
   if (produtoData[index].total_) {
-    cart.set(produtoData[index]);
-    location.reload();
+    cart.set(produtoData[index])
+    location.reload()
   } else {
-    alert("Esperava receber á quantidade!");
+    alert('Esperava receber á quantidade!')
   }
 }
 
 function delteInCart(id) {
   if (
-    confirm("Está preste a remover um item do carrinho!\nDesejas Continuar ?")
+    confirm('Está preste a remover um item do carrinho!\nDesejas Continuar ?')
   ) {
-    cart.remove(id);
-    location.reload();
+    cart.remove(id)
+    location.reload()
   }
 }
 
 function updateCartTotal() {
-  const quantidade = cart.get().length;
-  lbl_prod.innerHTML = "( " + quantidade + " )";
-  document.getElementById("spnCarrinho").innerHTML = `( ${quantidade} )`;
+  const quantidade = cart.get().length
+  lbl_prod.innerHTML = '( ' + quantidade + ' )'
+  document.getElementById('spnCarrinho').innerHTML = `( ${quantidade} )`
 }
 
-let open = false;
+let open = false
 function hidePaySection() {
-  open = !open;
+  open = !open
   if (open) {
-    btnPayOption.style.display = "none";
+    btnPayOption.style.display = 'none'
   } else {
-    btnPayOption.style.display = "";
+    btnPayOption.style.display = ''
   }
 }
 
 function onchangeValor(valor) {
-  lbl_pagar.innerHTML = (formatNumber(valor) || 0) + ",00 AOA";
+  valorDado = valor
+  lbl_pagar.innerHTML = (formatNumber(valor) || 0) + ',00 AOA'
   lbl_troco.innerHTML = valor
-    ? formatNumber(Math.abs(cart.getTotal() - valor)) + " ,00 AOA"
-    : "0,00 AOA";
+    ? formatNumber(getDiferenca()) + ' ,00 AOA'
+    : '0,00 AOA'
+}
+
+function getDiferenca() {
+  return Math.abs(cart.getTotal() - valorDado)
 }
