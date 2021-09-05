@@ -214,7 +214,7 @@ require './../../../config/util.php';
                           Cancelar
                         </button>
                       </label>
-                      <button
+                      <button 
                         id="btnSalvarCancelar"
                         type="button"
                         class="btn btn-success t"

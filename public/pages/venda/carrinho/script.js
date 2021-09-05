@@ -3,6 +3,10 @@ var valorDado = 0
 
 async function incialize() {
   updateCartTotal()
+  document
+    .getElementById('btnSalvarCancelar')
+    .addEventListener('click', printForm)
+
   const table = document.getElementById('table')
   table.innerHTML = ''
 
@@ -175,4 +179,19 @@ function onchangeValor(valor) {
 
 function getDiferenca() {
   return Math.abs(cart.getTotal() - valorDado)
+}
+
+function printForm() {
+  const iframe = document.createElement('iframe')
+  iframe.style.display = 'none'
+  iframe.setAttribute(
+    'src',
+    'http://ministock.pt/pages/venda/fatura/?id=10&tipo=porforma',
+  )
+  document.body.appendChild(iframe)
+  _loader.show()
+  iframe.contentWindow.addEventListener('DOMContentLoaded', () => {
+    iframe.contentWindow.print()
+    _loader.hide()
+  })
 }
