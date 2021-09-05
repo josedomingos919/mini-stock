@@ -1,9 +1,8 @@
-<?php 
+<?php
 
-session_start(); 
+session_start();
 $_SESSION['active_routes'] = 3;
-require('./../../config/util.php');
-
+require './../../config/util.php';
 ?>
 
 <!DOCTYPE html>
@@ -12,9 +11,13 @@ require('./../../config/util.php');
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MiniStock | <?php echo $text ?></title>
+    <title>MiniStock | <?php echo $text; ?></title>
     <link href="./style.css" rel="stylesheet" />
     <link rel="shortcut icon" href="./../../assets/img/icon.png" />
+    <script src="../components/loader/index.js"></script>
+    <script src="../../config/js/api.js"></script>
+    <script src="../../config/js/validate.js"></script>
+    <script src="./script.js"></script>
   </head>
   <body>
     <div class="app-container">
@@ -24,9 +27,7 @@ require('./../../config/util.php');
           <div class="log-text">iniStock</div>
         </div>
 
-        <?php 
-            render_routes();
-        ?> 
+        <?php render_routes(); ?> 
 
         <div class="container-footer">
           <div class="div-text">Ajuda 24h/24h</div>
@@ -38,8 +39,8 @@ require('./../../config/util.php');
       <section class="app">
         <div class="container-header-title">
           <h4 class="title-page mr-3">
-            <i class="<?php echo $icon ?>"></i>
-            <label class="teste-ye"><?php echo $text ?></label>
+            <i class="<?php echo $icon; ?>"></i>
+            <label class="teste-ye"><?php echo $text; ?></label>
           </h4>
           <hr />
         </div>
@@ -57,82 +58,41 @@ require('./../../config/util.php');
             <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
               <div class="accordion-body">
   
-              <div class="form-control pb-3">
-           
-              <h5>Data Início</h5>
+              <div class="form-control pb-3"> 
               <div class="row "> 
-               <div class="col-4"> 
-                   <label for="diaId" class="form-label">Dia</label>
-                   <input class="form-control" list="datalistOptionsDiaInicio" id="diaId" placeholder="ex.: 2">
-                   <datalist id="datalistOptionsDiaInicio"> 
-                       <script>
-                         for (let i = 1; i <= 31; i++) {
-                           document.write(`<option value="${i}"></option>`);
-                         } 
-                       </script>
-                   </datalist>
-               </div>
 
-               <div class="col-3"> 
-                   <label for="idMes" class="form-label">Mês</label>
-                   <input class="form-control" list="datalistOptionsMes" id="idMes" placeholder="ex.: 3">
-                   <datalist id="datalistOptionsMes">
-                       <script>
-                         for (let c = 1; c <= 12; c++) {
-                           document.write(`<option value="${c}"></option>`);
-                         } 
-                       </script>
-                   </datalist>
-               </div>
+              <div class="col-6">
+                <label class="form-label">Data Início</label>
+                <input placeholder="ex.: Água" required="" type="date" name="nome" minlength="3" class="form-control" id="dataInicio" aria-describedby="emailHelp">
+              </div>
 
-               <div class="col-3">
-                 <label class="form-label">Ano</label>
-                 <input placeholder="ex.: Ano" required="" type="number" name="nome" class="form-control" aria-describedby="emailHelp">
-                 <div class="form-text"></div>
-               </div>  
-
-               <div class="mt-2 mb-2"> <hr> </div>
-                 
-              <h5>Data Fim</h5>
-              <div class="row "> 
-               <div class="col-3"> 
-                   <label for="idCategoria" class="form-label">Dia</label>
-                   <input class="form-control" list="datalistOptionsCategoria" id="idCategoria" placeholder="ex.: 2">
-                   <datalist id="datalistOptionsCategoria"> 
-                       <script>
-                         for (let i = 1; i <= 31; i++) {
-                           document.write(`<option value="${i}"></option>`);
-                         } 
-                       </script>
-                   </datalist>
-               </div>
-
-               <div class="col-3"> 
-                   <label for="idMes" class="form-label">Mês</label>
-                   <input class="form-control" list="datalistOptionsMes" id="idMes" placeholder="ex.: 3">
-                   <datalist id="datalistOptionsMes">
-                       <script>
-                         for (let c = 1; c <= 12; c++) {
-                           document.write(`<option value="${c}"></option>`);
-                         } 
-                       </script>
-                   </datalist>
-               </div>
-
-               <div class="col-3">
-                 <label class="form-label">Ano</label>
-                 <input placeholder="ex.: Ano" required="" type="number" name="nome" class="form-control" aria-describedby="emailHelp">
-                 <div class="form-text"></div>
-               </div>  
+              <div class="col-6">
+                <label class="form-label">Data Fim</label>
+                <input placeholder="ex.: Água" required="" type="date" name="nome" minlength="3" class="form-control" id="dataFim" aria-describedby="emailHelp">
+              </div>
+              
+              
              </div>
 
              
-             <div class="mt-2"> <hr> </div>
-               <div class="col-3"> 
-                 <button type="button" class="btn btn-light t">Carregar</button>
-               </div>
+              <div class="mt-2 "> <hr> </div>
+               
+              <div  class="row">
 
-               </div>
+              <div class="col-12"> 
+                 <button type="button" onclick="loaderFillter()" class="btn btn-light t">Carregar</button>
+                 
+                 <label>
+                  <a id="btnExel" type="button" class="btn btn-success t">
+                      <i class="fas fa-print" style="margin-right: 8px"></i>
+                      Exportar Exel
+                    </a>
+                  </label>
+              </div>
+              
+              </div>
+
+              </div>
 
              
               </div>
@@ -146,22 +106,20 @@ require('./../../config/util.php');
 
                 
                 <form class="mt-4 from-list" >
-                  <table class="table table-striped table-hover">
+                  <table  class="table table-striped table-hover">
                       <thead>
                         <tr><th>ID</th>
-                        <th class="not-brack-text">Nome</th>
-                        <th>Categoria</th>
+                        <th class="not-brack-text">Tipo</th>
+                        <th>Foto</th>
+                        <th>Nome</th>
                         <th>Quantidade</th>
+                        <th>Total Venda</th>
                         <th>Preço Compra</th>
-                        <th>Preço Venda</th>
-                        <th>Total Unitário</th>
-                        <th>Preço Revendedor</th>
-                        <th>Total Revendedor</th>
-                        <th>Data</th>
-                        <th>Editar</th>
-                        <th>Eliminar</th>
+                        <th>Lurco</th>
+                        <th>Data</th> 
+                        <th>Fatura</th> 
                       </tr></thead>
-                      <tbody>
+                      <tbody id="table">
                         <tr>
                           <td></td>
                           <td class="not-brack-text"></td>
@@ -180,30 +138,14 @@ require('./../../config/util.php');
                           <td>
                             <button type="button" class="btn btn-primary"><i class="fas fa-trash-alt"></i></button>
                           </td>
-                          
+
                         </tr>
                         
 
                       </tbody>
                   </table>
                 </form>
-
-                  <div class="mt-4">
-                      <nav aria-label="Page navigation example mt-5">
-                        <ul class="pagination justify-content-center">
-                          <li class="page-item ">
-                            <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> &laquo; </a>
-                          </li>
-                          <li class="page-item"><a class="page-link" href="#">1</a></li>
-                          <li class="page-item"><a class="page-link" href="#">2</a></li>
-                          <li class="page-item"><a class="page-link" href="#">3</a></li>
-                          <li class="page-item">
-                            <a class="page-link" href="#"> &raquo; </a>
-                          </li>
-                        </ul>
-                      </nav>
-                  </div>
-              
+                
                 </div>
               </section>
 
@@ -213,5 +155,6 @@ require('./../../config/util.php');
     </div>
 
     <script src="../../assets/libs/bootstrap-5.1.0-dist/js/bootstrap.js"></script>
+   
   </body>
 </html>

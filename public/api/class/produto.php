@@ -1,6 +1,6 @@
 <?php
 
-    class produto  extends Generic{
-
-    }
+class produto extends Generic
+{
+}
 ?>

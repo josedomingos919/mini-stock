@@ -85,6 +85,8 @@ async function incialize() {
       `,
       )
       .join(' ')
+
+    window.print()
   }
 }
 

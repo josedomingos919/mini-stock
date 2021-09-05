@@ -74,9 +74,9 @@ window.onload = async () => {
           const item = await Api.add('produtovenda', {
             produto_id: e?.id,
             venda_id: inserted_id,
-            quantidade: e?.quantidade,
+            quantidade: e?.quantidade_,
             preco: e?.preco_venda,
-            total: +e?.preco_venda * +e?.quantidade,
+            total: +e?.preco_venda * +e?.quantidade_,
           })
 
           console.log(item)

@@ -148,7 +148,7 @@
 .li-container.ativo div::after {
   top: -8px;
   height: 43px;
-  content: " ";
+  content: ' ';
   left: -19px;
   z-index: -1;
   position: absolute;
@@ -183,4 +183,12 @@
 .product-sec .container.t .row {
   display: flex;
   justify-content: space-between;
+}
+
+tbody td {
+  white-space: nowrap !important;
+}
+
+.app {
+  overflow: hidden;
 }
