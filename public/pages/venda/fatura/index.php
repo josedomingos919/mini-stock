@@ -48,7 +48,14 @@
       <div>
         <div>Subtotal: <span id="subtotal"></span></div> 
         <div class="mt-2"><b>TOTAL</b>: <span id="totaldv"></span></div>
+        
+
+        <div class="hrDiv"></div>
+        <div>Valor dado: <span id="valorDado"></span><div>
+        <div>Diferença/Troco: <span id="diferenca"></span><div>
         <div id="txtTEp"></div>
+        <br><br>
+        
       <div>
       <div class="text">
         Power By MiniStock

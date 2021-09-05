@@ -3,9 +3,9 @@ var valorDado = 0
 
 async function incialize() {
   updateCartTotal()
-  document
-    .getElementById('btnSalvarCancelar')
-    .addEventListener('click', printForm)
+  document.getElementById('btnSalvarCancelar').addEventListener('click', () => {
+    printForm('')
+  })
 
   const table = document.getElementById('table')
   table.innerHTML = ''
@@ -71,7 +71,7 @@ window.onload = async () => {
 
       if (status) {
         for (e of cart.get()) {
-          const item = Api.add('produtovenda', {
+          const item = await Api.add('produtovenda', {
             produto_id: e?.id,
             venda_id: inserted_id,
             quantidade: e?.quantidade,
@@ -81,10 +81,11 @@ window.onload = async () => {
 
           console.log(item)
         }
+
         _loader.hide()
         alert('Venda feita com sucesso!')
         cart.clear()
-        window.location.replace('/pages/venda/vender/')
+        window.location.href = '/pages/venda/vender/'
       } else {
         alert('Falha ao vender!')
       }
@@ -181,12 +182,15 @@ function getDiferenca() {
   return Math.abs(cart.getTotal() - valorDado)
 }
 
-function printForm() {
+function printForm(id = '') {
+  const valorDado = document.getElementById('inputPreco').value
   const iframe = document.createElement('iframe')
   iframe.style.display = 'none'
   iframe.setAttribute(
     'src',
-    'http://ministock.pt/pages/venda/fatura/?id=10&tipo=porforma',
+    id !== ''
+      ? `http://ministock.pt/pages/venda/fatura/?id=${id}`
+      : `http://ministock.pt/pages/venda/fatura/?id=10&tipo=porforma&pago=${valorDado}&diferenca=${getDiferenca()}`,
   )
   document.body.appendChild(iframe)
   _loader.show()
@@ -194,4 +198,11 @@ function printForm() {
     iframe.contentWindow.print()
     _loader.hide()
   })
+}
+
+function cancelSale() {
+  if (confirm('Está preste a cancelar a venda\nContinuar ?')) {
+    cart.clear()
+    window.location.href = '/pages/venda/vender/'
+  }
 }

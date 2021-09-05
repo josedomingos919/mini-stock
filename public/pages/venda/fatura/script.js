@@ -6,12 +6,14 @@ function setFormDateTime() {
 }
 
 async function incialize() {
-  const { id, tipo } = getUrlparams()
+  const { id, tipo, pago, diferenca: troco } = getUrlparams()
   setFormDateTime()
 
   if (tipo == 'porforma') {
     txtFat.innerHTML = `FATURA PORFORMA`
     lbl_text.innerHTML = '***'
+    valorDado.innerHTML = formatNumber(pago) + ' AOA'
+    diferenca.innerHTML = formatNumber(troco) + ' AOA'
 
     table.innerHTML = cart
       .get()
@@ -47,6 +49,10 @@ async function incialize() {
 
   if (response?.status) {
     const [venda] = response.data
+
+    valorDado.innerHTML = formatNumber(venda.valor_pago) + ' AOA'
+    diferenca.innerHTML = formatNumber(venda.troco) + ' AOA'
+
     subtotal.innerHTML = `${formatNumber(venda.total)} AOA`
     totaldv.innerHTML = `${formatNumber(venda.total)} AOA`
     txtTEp.innerHTML = `[ <b>${venda.tipo}</b> ] `

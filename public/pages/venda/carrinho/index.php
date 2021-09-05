@@ -203,6 +203,7 @@ require './../../../config/util.php';
                       </button>
                       <label>
                         <button
+                        onClick="cancelSale()"
                           id="btnSalvarEnter"
                           type="button"
                           class="btn btn-danger t"
