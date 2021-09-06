@@ -85,7 +85,7 @@ require './../../config/util.php';
                  <label>
                   <a id="btnExel" type="button" class="btn btn-success t">
                       <i class="fas fa-print" style="margin-right: 8px"></i>
-                      Exportar Exel
+                      Exportar Excel
                     </a>
                   </label>
               </div>

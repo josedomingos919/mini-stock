@@ -10,7 +10,7 @@ async function incialize() {
   setFormDateTime()
 
   if (tipo == 'porforma') {
-    txtFat.innerHTML = `FATURA PORFORMA`
+    txtFat.innerHTML = `FATURA PROFORMA`
     lbl_text.innerHTML = '***'
     valorDado.innerHTML = formatNumber(pago) + ' AOA'
     diferenca.innerHTML = formatNumber(troco) + ' AOA'
