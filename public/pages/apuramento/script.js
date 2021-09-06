@@ -130,7 +130,7 @@ function printForm(id = '') {
 function generateCSV(vet) {
   const linkExel = document.getElementById('btnExel')
   var arrayContent = [
-    ['ID,TIPO,NOME,QUANTIDADE,TOTAL VENDA,PREÇO COMPRA,LUCRO,DATA'],
+    ['ID;TIPO;NOME;QUANTIDADE;"TOTAL VENDA";"PREÇO COMPRA";LUCRO;DATA'],
     ...vet.map(
       ({
         id,
@@ -142,11 +142,11 @@ function generateCSV(vet) {
         lucro,
         data_,
       }) => [
-        `${id},${tipo},${nomeProduto},${quantidade},${formatNumber(
+        `"${id}";"${tipo}";"${nomeProduto}";"${quantidade}";"${formatNumber(
           totalVenda,
-        )} AOA,${formatNumber(preco_compra)} AOA,${formatNumber(
+        )} AOA";"${formatNumber(preco_compra)} AOA";"${formatNumber(
           lucro,
-        )} AOA,${data_}`,
+        )} AOA";"${data_}"`,
       ],
     ),
   ]
