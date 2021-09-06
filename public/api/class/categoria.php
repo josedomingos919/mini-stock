@@ -1,8 +1,7 @@
 <?php
 
-    class categoria  extends Generic{
-
-
-    }
+class categoria extends Generic
+{
+}
 
 ?>
